@@ -12,10 +12,13 @@ import random
 import sys
 import time
 import logging
+import win32gui
 
-import detect
-import response
-import basic
+from tools import basic, detect, response
+from tupo.liaoTuPo import LiaoTuPo
+from tools.basic import Basic
+from tools.positions import TuPoPositions
+from tools.positions import Common
 
 
 def Auto(m, T) -> None:
@@ -38,11 +41,11 @@ def Auto(m, T) -> None:
 
 
 def clickVictory() -> None:
-    basic.getGameScreen(logger)
+    basic.Basic.getGameScreen(logger)
     if detect.detectVictory(logger):
-        response.responseOfDetectVictory(logger)
+        response.responseOfDetectVictory(logger, handle)
     if detect.detectFu(logger):
-        response.responseOfDetectFu(logger)
+        response.responseOfDetectFu(logger, handle)
     logger.info("victory not found")
 
 
@@ -50,25 +53,25 @@ def liaoTuPo() -> None:
     basic.getGameScreen(logger)
     if detect.detectRemainFightTimesIsZero(logger) \
             or detect.detectRemainFightTimesIsZeroWhenIsNearlyOver(logger):
-        response.responseOfDetectRemainFightTimesIsZero(logger)
+        response.responseOfDetectRemainFightTimesIsZero(logger, handle)
     if detect.detectLiaoTuPo(logger):
         logger.info("already in the liaoTupo")
         while detect.detectMoreThanFiveMedals(logger):
-            response.responseOfDetectMoreThanFiveMedals(logger)
-        response.responseOfDetectNotMoreThanFiveMedals(logger)
+            response.responseOfDetectMoreThanFiveMedals(logger, handle)
+        response.responseOfDetectNotMoreThanFiveMedals(logger, handle)
         time.sleep(random.randint(2, 3))
         while True:
             if detect.detectVictory(logger):
-                response.responseOfDetectVictory(logger)
+                response.responseOfDetectVictory(logger, handle)
                 break
             if detect.detectFu(logger):
-                response.responseOfDetectFu(logger)
+                response.responseOfDetectFu(logger, handle)
                 break
-            response.responseOfNotDetectOrFu(logger)
+            response.responseOfNotDetectOrFu(logger, handle)
             if detect.detectLiaoTuPo(logger):
                 break
     else:
-        logger.info("not in the liaoTuPo or the liaoTuPo has accomplished")
+        logger.info("不在寮突破界面")
 
 
 def fightCh28():
@@ -82,21 +85,25 @@ def commonFight() -> None:
     pass
 
 
-def chooseMode(mode, time, logger) -> None:
+def chooseMode(mode, time) -> None:
     if mode == "onlyVictory":
-        # only detect the victory picture and the points here are related to the picture itself
-        chooseMode(mode, time, logger)
+        # 仅仅只检测胜利图标
+        Auto(mode, time)
     if mode == "liaoTuPo":
-        chooseMode(mode, time, logger)
+        Auto(mode, time)
     else:
-        logger.error("there exists mistake in input")
+        logger.error("输入存在错误")
         sys.exit(0)
 
 
 if __name__ == '__main__':
+    hwnd = win32gui.FindWindow(0, "阴阳师-网易游戏")
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     logger = logging.getLogger(__name__)
-    chooseMode("liaoTuPo", 500000)
-    # chooseMode("onlyVictory", 50000)
-    # getGameScreen()
-    # getScreenMean(246, 487, 259, 504)
+    liaoTuPo = LiaoTuPo(hwnd, logger)
+    liaoTuPo.start()
+    # 如果一个窗口长期不操作，可能休眠，导致获取handle失败
+    # imgSrcName = "./img/attack.jpg"
+    # basicControl = Basic(hwnd, logger)
+    # basicControl.compareScreens(imgSrcName)
+    # basicControl.interceptImg("remainZero.jpg", *TuPoPositions.remainZero)

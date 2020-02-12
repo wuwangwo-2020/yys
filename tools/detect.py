@@ -6,7 +6,7 @@
 # @File    : detect.py
 # @Software: PyCharm
 
-from yys import basic
+from tools import basic
 
 
 def simpleJudge(x1, y1, x2, y2, standardBMean, standardGMean, standardRMean, logger) -> bool:
@@ -25,7 +25,7 @@ def detectFu(logger) -> bool:  # detect fu
 
 
 def detectLiaoTuPo(logger) -> bool:  # detect whether in LiaoTuPo
-    return simpleJudge(36, 599, 119, 620, 73.60, 82.00, 91.92, logger)
+    return simpleJudge(36, 599, 119, 620, 75.37, 86.89, 99.05, logger)
 
 
 def detectMoreThanFiveMedals(logger) -> bool:  # detect whether more than five medals

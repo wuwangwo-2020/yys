@@ -9,44 +9,44 @@
 import time
 import random
 
-from yys import basic
+from tools import basic
 
 
-def responseOfDetectVictory(logger) -> None:
+def responseOfDetectVictory(logger, handle) -> None:
     logger.info("find victory")
     for j in range(3):
         time.sleep(random.randint(0, 1) + random.random())
-        basic.mouseClick(237, 439, 446, 532, logger)
+        basic.mouseClick(237, 439, 446, 532, logger, handle)
 
 
-def responseOfDetectFu(logger) -> None:
+def responseOfDetectFu(logger, handle) -> None:
     logger.info("find fu")
     for j in range(3):
         time.sleep(random.randint(0, 1) + random.random())
-        basic.mouseClick(237, 439, 446, 532, logger)
+        basic.mouseClick(237, 439, 446, 532, logger, handle)
 
 
-def responseOfNotDetectOrFu(logger) -> None:
-    basic.mouseClick(280, 149, 433, 311, logger)
+def responseOfNotDetectOrFu(logger, handle) -> None:
+    basic.mouseClick(280, 149, 433, 311, logger, handle)
     logger.info("victory not found and fu not found")
     time.sleep(random.randint(1, 2) + random.random())
     basic.getGameScreen(logger)
 
 
-def responseOfDetectMoreThanFiveMedals(logger) -> None:
-    basic.mouseClick(280, 149, 433, 311, logger)
+def responseOfDetectMoreThanFiveMedals(logger, handle) -> None:
+    basic.mouseClick(280, 149, 433, 311, logger, handle)
     logger.info("not find folks with no more than 5 medals")
-    basic.mouseDrag(566, 228, 739, 253, 115)
+    basic.mouseDrag(566, 228, 739, 253, 115, handle)
     logger.info("succeed dragging down")
     basic.getGameScreen(logger)
 
 
-def responseOfDetectNotMoreThanFiveMedals(logger) -> bool:
+def responseOfDetectNotMoreThanFiveMedals(logger, handle) -> bool:
     logger.info("find folks with no more than 5 medals")
-    basic.mouseClick(566, 228, 739, 253, logger)
+    basic.mouseClick(566, 228, 739, 253, logger, handle)
     time.sleep(random.randint(2, 4))
     logger.info("begin fight")
-    basic.mouseClick(644, 354, 741, 396, logger)
+    basic.mouseClick(644, 354, 741, 396, logger, handle)
     basic.getGameScreen(logger)
 
 

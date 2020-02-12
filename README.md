@@ -1,3 +1,4 @@
-## yys tool
-### a simple too for playing yys
-### contains liaoTuPo and clickVictory modes for now 
+## yys 自动化工具
+#### 一个简单的自动化工具
+#### 目前暂时包含寮突破，御魂，御灵，业原火功能
+#### 本工具适用于yys桌面版且可后台运行
