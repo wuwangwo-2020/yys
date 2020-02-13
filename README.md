@@ -16,3 +16,6 @@
 ##### 1.你需要一个python IDE，推荐Pycharm
 ##### 2.安装包，在终端使用命令pip install -r requirements.txt
 ##### 3.运行，在终端使用命令python mainFunction.py
+
+### 参与项目
+##### 有对项目有改进想法的可以联系VX：sidens
