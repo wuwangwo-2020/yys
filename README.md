@@ -15,6 +15,7 @@
 ### 使用步骤
 ##### 1.你需要一个python IDE，推荐Pycharm
 ##### 2.安装包，在终端使用命令pip install -r requirements.txt
+##### 3.指定运行功能，在setting.ini文件中修改数字，以运行指定功能模式
 ##### 3.运行，在终端使用命令python mainFunction.py
 
 ### 参与项目
