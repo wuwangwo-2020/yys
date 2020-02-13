@@ -7,8 +7,9 @@
 # @Software: PyCharm
 
 
-class Common:
-    Fu = (495, 457), (611, 520)  # 战斗胜利结束后中间偏下出现的福
+class CommonPositions:
+    victory = (367, 74), (484, 157)  # 战斗胜利结束后中间偏上出现的胜利战鼓
+    fu = (495, 457), (611, 520)  # 战斗胜利结束后中间偏下出现的福
 
 
 class TuPoPositions:
@@ -17,3 +18,8 @@ class TuPoPositions:
     attack = (527, 288), (634, 330)  # 点击寮突破中第一个对手的位置后出现的挑战按钮
     liaoArea = (123, 90), (331, 231)  # 左上角的寮突破界面，点击这里以防止误点
     remainZero = (245, 485), (284, 505)  # 寮突破剩余次数为0
+
+
+class HuntuPositions:
+    victoryClick = (12, 305), (121, 526)  # 魂土战斗胜利结束后应该点击的坐标
+    huntuAttack = (1060, 560), (1110, 596)

@@ -7,19 +7,21 @@
 # @Software: PyCharm
 # one thing need to be mentioned is that the game may block simulated mouse operations,
 # so the script must obtain the administration authority to run smoothly
-
+import configparser
 import random
 import sys
 import time
 import logging
 import win32gui
 
-from tools import basic, detect, response
 from tupo.liaoTuPo import LiaoTuPo
+from huntuET.huntuET import HuntuET
+
+from tools import basic, detect, response
 from tools.basic import Basic
 from tools.positions import TuPoPositions
-from tools.positions import Common
-
+from tools.positions import CommonPositions
+from tools.positions import HuntuPositions
 
 def Auto(m, T) -> None:
     i, j = 0, 0
@@ -96,14 +98,32 @@ def chooseMode(mode, time) -> None:
         sys.exit(0)
 
 
+def init():
+    conf = configparser.ConfigParser()
+    conf.read("settings.ini", encoding="utf-8")
+    mode = conf.getint("SETTINGS", "mode")
+    logger.info("成功读取配置！")
+    if mode == 0:
+        logger.info("进入寮突破模式")
+        fight = LiaoTuPo(hwnd, logger)
+    elif mode == 1:
+        logger.info("进入突破模式")
+    elif mode == 2:
+        logger.info("进入魂土等模式")
+        fight = HuntuET(hwnd, logger)
+    else:
+        logger.info("进入探索模式")
+    fight.start()
+
+
 if __name__ == '__main__':
     hwnd = win32gui.FindWindow(0, "阴阳师-网易游戏")
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     logger = logging.getLogger(__name__)
-    liaoTuPo = LiaoTuPo(hwnd, logger)
-    liaoTuPo.start()
     # 如果一个窗口长期不操作，可能休眠，导致获取handle失败
     # imgSrcName = "./img/attack.jpg"
     # basicControl = Basic(hwnd, logger)
     # basicControl.compareScreens(imgSrcName)
-    # basicControl.interceptImg("remainZero.jpg", *TuPoPositions.remainZero)
+    # basicControl.interceptImg("huntuAttack.jpg", *HuntuPositions.huntuAttack)
+
+    init()

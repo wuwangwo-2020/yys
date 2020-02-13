@@ -55,8 +55,6 @@ class Basic:
                 memdc.DeleteDC()
                 win32gui.ReleaseDC(self.hwnd, hwindc)
                 win32gui.DeleteObject(bmp.GetHandle())
-                # cv2.imshow("image", cv2.cvtColor(img, cv2.COLOR_BGRA2GRAY))
-                # cv2.waitKey(0)
                 if gray == 0:
                     return cv2.cvtColor(img, cv2.COLOR_BGRA2BGR)
                 else:
@@ -65,7 +63,7 @@ class Basic:
             pass
 
     def readImg(self, imgSrcName) -> np.ndarray:
-        self.logger.info("成读取图片" + imgSrcName)
+        self.logger.info("成功读取图片" + imgSrcName)
         return cv2.imread(imgSrcName)
 
     def compareScreens(self, imgSrcName) -> (float, float):

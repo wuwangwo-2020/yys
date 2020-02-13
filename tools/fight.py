@@ -7,16 +7,25 @@
 # @Software: PyCharm
 
 import configparser
+import time
+import random
+
+from tools.basic import Basic
 
 
 class Fight:
     def __init__(self, hwnd, logger):
-        conf = configparser.ConfigParser()
-        conf.read("settings.ini", encoding="utf-8")
         self.hwnd = hwnd
         self.logger = logger
-        self.mode = conf.getint("SETTINGS", "mode")
-        self.logger.info("成功读取配置！")
+        self.basicControl = Basic(hwnd, logger)
+
+    def forSakeOfWrongPosition(self, pos1, pos2):
+        time.sleep(random.randint(0, 1))
+        self.basicControl.mouseClick(pos1, pos2)
+        time.sleep(random.randint(1, 2))
+        self.basicControl.mouseClick(pos1, pos2)
+        time.sleep(random.randint(0, 1))
+        self.basicControl.mouseClick(pos1, pos2)
 
     def start(self):
         pass
