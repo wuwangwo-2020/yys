@@ -18,13 +18,13 @@ class HuntuET(Fight):
         Fight.__init__(self, hwnd, logger)
 
     def start(self):
-        # TODO 检测司机特有的挑战按钮
         huntuAttackImgPath = "./img/huntuAttack.jpg"
         victoryImgPath = "./img/victory.jpg"
+        fuImgPath = "./img/fu.jpg"
         while True:
             maxVal1, maxLoc1 = self.basicControl.compareScreens(huntuAttackImgPath)
             maxVal2, maxLoc2 = self.basicControl.compareScreens(victoryImgPath)
-            maxVal3, maxLoc3 = self.basicControl.compareScreens("./img/fu.jpg")
+            maxVal3, maxLoc3 = self.basicControl.compareScreens(fuImgPath)
             if maxVal1 > 0.9:
                 self.forSakeOfWrongPosition(*HuntuPositions.huntuAttack)
                 self.logger.info("战斗开始")
@@ -33,6 +33,6 @@ class HuntuET(Fight):
                 self.forSakeOfWrongPosition(*HuntuPositions.victoryClick)
                 self.forSakeOfWrongPosition(*HuntuPositions.victoryClick)
             else:
-                t = random.randint(1, 2)
+                t = random.randint(0, 1)
                 self.logger.info("战斗未结束，等待" + str(t))
                 time.sleep(t)

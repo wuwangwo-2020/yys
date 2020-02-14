@@ -37,6 +37,7 @@ class LiaoTuPo(Fight):
                     t = random.randint(300, 400)
                     self.logger.info("等待寮突破次数恢复" + str(t))
                     time.sleep(t)
+                self.logger.info("开始战斗")
                 self.basicControl.mouseClick(*TuPoPositions.firstFight)
                 time.sleep(random.randint(0, 1))
                 self.forSakeOfWrongPosition(*TuPoPositions.attack)  # 再次点击挑战，防止漏点

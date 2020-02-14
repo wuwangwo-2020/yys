@@ -22,7 +22,7 @@ class Fight:
     def forSakeOfWrongPosition(self, pos1, pos2):
         time.sleep(random.randint(0, 1))
         self.basicControl.mouseClick(pos1, pos2)
-        time.sleep(random.randint(1, 2))
+        time.sleep(random.randint(0, 1))
         self.basicControl.mouseClick(pos1, pos2)
         time.sleep(random.randint(0, 1))
         self.basicControl.mouseClick(pos1, pos2)

@@ -14,6 +14,7 @@ import win32api
 import win32ui
 import time
 import numpy as np
+import pyautogui
 
 from tools.positions import TuPoPositions
 
@@ -100,14 +101,16 @@ class Basic:
         x = random.randint(pos1[0], pos2[0])
         y = random.randint(pos1[1], pos2[1])
         t = random.random()
-        # attention, the point here is relative to the picture itself not the desktop
-        win32gui.SendMessage(
-            self.hwnd, win32con.WM_MOUSEMOVE, 0, win32api.MAKELONG(x, y))
-        win32gui.SendMessage(
-            self.hwnd, win32con.WM_LBUTTONDOWN, 0, win32api.MAKELONG(x, y))
-        time.sleep(random.randint(20, 80) / 1000)
-        win32gui.SendMessage(
-            self.hwnd, win32con.WM_LBUTTONUP, 0, win32api.MAKELONG(x, y))
+        # 这里的都是相对坐标
+        pyautogui.moveTo(x, y, duration=t)
+        pyautogui.click(x, y)
+        # win32gui.SendMessage(
+        #     self.hwnd, win32con.WM_MOUSEMOVE, 0, win32api.MAKELONG(x, y))
+        # win32gui.SendMessage(
+        #     self.hwnd, win32con.WM_LBUTTONDOWN, 0, win32api.MAKELONG(x, y))
+        # time.sleep(random.randint(20, 80) / 1000)
+        # win32gui.SendMessage(
+        #     self.hwnd, win32con.WM_LBUTTONUP, 0, win32api.MAKELONG(x, y))
         self.logger.info("点击了:(" + str(x) + ", " + str(y) + "), spend " + str(t) + " seconds")
 
     def mouseDrag(self, pos1, pos2, length) -> None:
