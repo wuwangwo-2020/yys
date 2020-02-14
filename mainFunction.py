@@ -124,6 +124,6 @@ if __name__ == '__main__':
     # imgSrcName = "./img/attack.jpg"
     # basicControl = Basic(hwnd, logger)
     # basicControl.compareScreens(imgSrcName)
-    # basicControl.interceptImg("huntuAttack.jpg", *HuntuPositions.huntuAttack)
+    # basicControl.interceptImg("firstFightMedals.jpg", *TuPoPositions.firstFightMedals)
 
     init()
