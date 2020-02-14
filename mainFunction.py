@@ -12,8 +12,6 @@ import random
 import sys
 import time
 import logging
-
-sys.path.append("F:/Python/python36")
 import win32gui
 
 from tupo.liaoTuPo import LiaoTuPo
