@@ -14,9 +14,6 @@ import win32api
 import win32ui
 import time
 import numpy as np
-import pyautogui
-
-from tools.positions import TuPoPositions
 
 
 class Basic:
