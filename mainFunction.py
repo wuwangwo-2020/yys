@@ -12,6 +12,8 @@ import random
 import sys
 import time
 import logging
+
+sys.path.append("D://python36//Lib//site-packages")
 import win32gui
 
 from tupo.liaoTuPo import LiaoTuPo
@@ -22,6 +24,7 @@ from tools.basic import Basic
 from tools.positions import TuPoPositions
 from tools.positions import CommonPositions
 from tools.positions import HuntuPositions
+
 
 def Auto(m, T) -> None:
     i, j = 0, 0

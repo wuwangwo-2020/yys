@@ -1,5 +1,5 @@
 numpy
 pywin32
+pypiwin32
 opencv_python
 win32gui
-win32ui
