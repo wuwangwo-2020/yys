@@ -1,4 +1,5 @@
 numpy
-cv2
+pywin32
+opencv_python
 win32gui
 win32ui
