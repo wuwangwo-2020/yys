@@ -21,11 +21,11 @@ python3.6
 ## 使用步骤
 1.你需要安装python运行环境[Python3.6](https://www.python.org/downloads/release/python-3610/)
 
-2.安装包，进入cmd终端使用命令pip install -r requirements.txt
+2.安装包，以管理员身份进入cmd终端使用命令pip install -r requirements.txt
 
-3.指定运行功能，在1setting.ini文件中修改数字，以运行指定功能模式
+3.指定运行功能，在setting.ini文件中修改数字，以运行指定功能模式
 
-4.运行，进入脚本根目录够，再进入cmd在终端使用命令python mainFunction.py
+4.运行，进入脚本根目录，再进入cmd在终端使用命令python mainFunction.py
 
 ## 后续更新计划
 个人突破，困28狗粮
