@@ -1,5 +1,4 @@
 numpy
 win32gui
-win32api
 win32ui
 pyautogui
