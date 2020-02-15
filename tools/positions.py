@@ -23,4 +23,9 @@ class TuPoPositions:
 
 class HuntuPositions:
     victoryClick = (12, 305), (121, 526)  # 魂土战斗胜利结束后应该点击的坐标
-    huntuAttack = (1060, 560), (1110, 596)
+    huntuAttack = (1060, 560), (1110, 596)  # 魂土战斗
+    xiongBenXiong = (76, 187), (140, 206)  # 熊本熊
+    zhunBei = (987, 457), (1082, 513)  # 魂土准备]
+    jin = (88, 347), (144, 494)  # 魂土最左边烬的位置
+    level1ZhiZhu = (500, 135), (606, 246)  # 魂土第一层蜘蛛
+    teShuJiZhi = (852, 64), (892, 107)

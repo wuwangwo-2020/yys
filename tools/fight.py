@@ -6,7 +6,6 @@
 # @File    : fight.py
 # @Software: PyCharm
 
-import configparser
 import time
 import random
 
@@ -18,6 +17,8 @@ class Fight:
         self.hwnd = hwnd
         self.logger = logger
         self.basicControl = Basic(hwnd, logger)
+        self.driver = 1
+        self.mark = 1
 
     def forSakeOfWrongPosition(self, pos1, pos2):
         time.sleep(random.randint(0, 1))

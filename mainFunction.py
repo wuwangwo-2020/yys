@@ -114,6 +114,8 @@ def init():
         fight = HuntuET(hwnd, logger)
     else:
         logger.info("进入探索模式")
+    fight.driver = conf.getint("SETTINGS", "driver")
+    fight.mark = conf.getint("SETTINGS", "mark")
     fight.start()
 
 
@@ -125,6 +127,6 @@ if __name__ == '__main__':
     # imgSrcName = "./img/attack.jpg"
     # basicControl = Basic(hwnd, logger)
     # basicControl.compareScreens(imgSrcName)
-    # basicControl.interceptImg("firstFightMedals.jpg", *TuPoPositions.firstFightMedals)
+    # basicControl.interceptImg("teShuJiZhi.jpg", *HuntuPositions.teShuJiZhi)
 
     init()
