@@ -15,14 +15,15 @@ import logging
 import win32gui
 
 from tupo.liaoTuPo import LiaoTuPo
-from huntuET.huntuET import HuntuET
+from huntuET.huntu import HuntuET
+from huntuET.yeyuanhuo import YeYuanHuo
 
 from tools import basic, detect, response
 from tools.basic import Basic
 from tools.positions import TuPoPositions
 from tools.positions import CommonPositions
 from tools.positions import HuntuPositions
-
+from tools.positions import YeyuanhuoPositions
 
 def Auto(m, T) -> None:
     i, j = 0, 0
@@ -110,8 +111,11 @@ def init():
     elif mode == 1:
         logger.info("进入突破模式")
     elif mode == 2:
-        logger.info("进入魂土等模式")
+        logger.info("进入魂土模式")
         fight = HuntuET(hwnd, logger)
+    elif mode == 3:
+        logger.info("进入业原火模式")
+        fight = YeYuanHuo(hwnd, logger)
     else:
         logger.info("进入探索模式")
     fight.driver = conf.getint("SETTINGS", "driver")
@@ -124,9 +128,9 @@ if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     logger = logging.getLogger(__name__)
     # 如果一个窗口长期不操作，可能休眠，导致获取handle失败
-    # imgSrcName = "./img/attack.jpg"
+    imgSrcName = "./img/attack.jpg"
     # basicControl = Basic(hwnd, logger)
     # basicControl.compareScreens(imgSrcName)
-    # basicControl.interceptImg("teShuJiZhi.jpg", *HuntuPositions.teShuJiZhi)
+    # basicControl.interceptImg("yeAttack.jpg", *YeyuanhuoPositions.yeAttack)
 
     init()

@@ -10,6 +10,7 @@
 class CommonPositions:
     victory = (367, 74), (484, 157)  # 战斗胜利结束后中间偏上出现的胜利战鼓
     fu = (495, 457), (611, 520)  # 战斗胜利结束后中间偏下出现的福
+    victoryClick = (12, 305), (121, 526)  # 胜利结束后应该点击的坐标
 
 
 class TuPoPositions:
@@ -22,10 +23,12 @@ class TuPoPositions:
 
 
 class HuntuPositions:
-    victoryClick = (12, 305), (121, 526)  # 魂土战斗胜利结束后应该点击的坐标
     huntuAttack = (1060, 560), (1110, 596)  # 魂土战斗
-    xiongBenXiong = (76, 187), (140, 206)  # 熊本熊
-    zhunBei = (987, 457), (1082, 513)  # 魂土准备]
     jin = (88, 347), (144, 494)  # 魂土最左边烬的位置
-    level1ZhiZhu = (500, 135), (606, 246)  # 魂土第一层蜘蛛
     teShuJiZhi = (852, 64), (892, 107)
+
+
+class YeyuanhuoPositions:
+    yeAttack = (1001, 544), (1062, 564)
+    yeYuanHuoArea = (52, 286), (85, 390)  # 业原火点击区域
+    chiArea = (148, 402), (398, 479)  # 痴点击区域

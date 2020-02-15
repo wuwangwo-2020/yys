@@ -3,15 +3,13 @@
 # @Time    : 13/02/2020 11:45
 # @Author  : Achilles
 # @Site    : 
-# @File    : huntuET.py
+# @File    : huntu.py
 # @Software: PyCharm
 
-import time
-import random
 
 from tools.fight import Fight
 from tools.positions import HuntuPositions
-
+from tools.positions import CommonPositions
 
 class HuntuET(Fight):
     def __init__(self, hwnd, logger):
@@ -37,6 +35,6 @@ class HuntuET(Fight):
             maxVal4, maxLoc4 = self.basicControl.compareScreens(fuImgPath)
             if maxVal3 > 0.9 or maxVal4 > 0.9:  # 战斗结算
                 self.logger.info("战斗结束")
-                self.forSakeOfWrongPosition(*HuntuPositions.victoryClick)
-                self.forSakeOfWrongPosition(*HuntuPositions.victoryClick)
+                self.forSakeOfWrongPosition(*CommonPositions.victoryClick)
+                self.forSakeOfWrongPosition(*CommonPositions.victoryClick)
                 self.times = 0
