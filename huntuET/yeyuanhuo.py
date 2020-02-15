@@ -10,6 +10,9 @@ from tools.fight import Fight
 from tools.positions import YeyuanhuoPositions
 from tools.positions import CommonPositions
 
+import time
+import random
+
 
 class YeYuanHuo(Fight):
     def __init__(self, hwnd, logger):
@@ -23,10 +26,15 @@ class YeYuanHuo(Fight):
             maxVal1, maxLoc1 = self.basicControl.compareScreens("./img/yeAttack.jpg")
             if maxVal1 > 0.9:
                 self.logger.info("检测到挑战按钮")
-                self.basicControl.mouseClick(*YeyuanhuoPositions.chiArea)
+                self.forSakeOfWrongPosition(*YeyuanhuoPositions.yeYuanHuoArea)
+                time.sleep(random.randint(2, 3))
+                self.logger.info("选择业原火")
+                self.forSakeOfWrongPosition(*YeyuanhuoPositions.chiArea)
                 self.logger.info("选择痴")
-                self.basicControl.mouseClick(*YeyuanhuoPositions.yeAttack)
+                self.forSakeOfWrongPosition(*YeyuanhuoPositions.yeAttack)
                 self.logger.info("开始挑战")
+                self.logger.info("等待")
+                time.sleep(random.randint(50, 60))
             # 检测结束
             maxVal3, maxLoc3 = self.basicControl.compareScreens(victoryImgPath)
             maxVal4, maxLoc4 = self.basicControl.compareScreens(fuImgPath)

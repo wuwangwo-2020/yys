@@ -11,6 +11,7 @@ from tools.fight import Fight
 from tools.positions import HuntuPositions
 from tools.positions import CommonPositions
 
+
 class HuntuET(Fight):
     def __init__(self, hwnd, logger):
         Fight.__init__(self, hwnd, logger)
