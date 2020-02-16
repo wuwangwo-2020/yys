@@ -39,7 +39,7 @@ class LiaoTuPo(Fight):
                     time.sleep(t)
                 maxVal3, maxLoc3 = self.basicControl.compareScreens("./img/firstFightMedals.jpg")
                 if maxVal3 > 0.9:
-                    self.logger("未找到合适勋章对手")
+                    self.logger.info("未找到合适勋章对手")
                     break
                 self.logger.info("开始战斗")
                 self.basicControl.mouseClick(*TuPoPositions.firstFight)
