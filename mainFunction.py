@@ -128,7 +128,7 @@ if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     logger = logging.getLogger(__name__)
     # 如果一个窗口长期不操作，可能休眠，导致获取handle失败
-    imgSrcName = "./img/attack.jpg"
+    # imgSrcName = "./img/attack.jpg"
     # basicControl = Basic(hwnd, logger)
     # basicControl.compareScreens(imgSrcName)
     # basicControl.interceptImg("yeAttack.jpg", *YeyuanhuoPositions.yeAttack)

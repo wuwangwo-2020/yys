@@ -47,6 +47,7 @@ class LiaoTuPo(Fight):
                 maxVal4, maxLoc4 = self.basicControl.compareScreens("./img/attack.jpg")
                 if maxVal4 > 0.9:
                     self.forSakeOfWrongPosition(*TuPoPositions.attack)  # 再次点击挑战，防止漏点
+                    self.logger.info("点击了挑战按钮")
                     while True:
                         maxVal5, maxLoc5 = self.basicControl.compareScreens("./img/fu.jpg")
                         if maxVal5 > 0.9:
